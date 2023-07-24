@@ -25,6 +25,7 @@ export default async function Home() {
   return (
     <div style={{ display: "grid" }}>
       <h1>Home</h1>
+      
       <Link href="/dashboard">Dashboard</Link>
 
       {/* @ts-expect- error Caso tenha algum component assincrono */}
@@ -33,6 +34,7 @@ export default async function Home() {
       <img src={repositories.message} width={300} height={250} />
 
       <User />
+
       <Suspense fallback={<div>Carregando Repositórios...</div>}> {/* Carregamento de component separado => SSR Streaming */}
         <Repo />
       </Suspense>
