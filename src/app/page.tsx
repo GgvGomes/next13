@@ -2,8 +2,15 @@ import { Repo } from "@/components/repo";
 import { User } from "@/components/user";
 import { Suspense } from "react";
 import Link from "next/link";
+import { Increment } from "@/components/increment";
 
 // export const revalidate = 30; // Revalida a pagina toda
+
+// Alterando o header da pagina
+// Metadata da pagina
+export const metadata = {
+  title: "Home",
+}
 
 export default async function Home() {
   const reponse = await fetch("https://dog.ceo/api/breeds/image/random", {
@@ -25,7 +32,7 @@ export default async function Home() {
   return (
     <div style={{ display: "grid" }}>
       <h1>Home</h1>
-      
+
       <Link href="/dashboard">Dashboard</Link>
 
       {/* @ts-expect- error Caso tenha algum component assincrono */}
@@ -33,9 +40,17 @@ export default async function Home() {
       <pre>{JSON.stringify(repositories, null, 2)}</pre>
       <img src={repositories.message} width={300} height={250} />
 
+      <Suspense fallback={<div>Carregando Increment...</div>}>
+        {/* Carregamento de component separado => SSR Streaming */}
+        {/* Ver pq o component esta reenderizando toda a pagina */}
+        <Increment />
+      </Suspense>
+
       <User />
 
-      <Suspense fallback={<div>Carregando Repositórios...</div>}> {/* Carregamento de component separado => SSR Streaming */}
+      <Suspense fallback={<div>Carregando Repositórios...</div>}>
+        {" "}
+        {/* Carregamento de component separado => SSR Streaming */}
         <Repo />
       </Suspense>
     </div>

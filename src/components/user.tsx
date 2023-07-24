@@ -1,16 +1,15 @@
 import { cookies, headers } from "next/headers";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 
 export function User() {
   // Uso de cookies ou headers
   const userCookies = cookies();
   const userHeaders = headers();
 
-  const routers = useRouter();
-
-  function onSubmit() {
-    routers.push("/dashboard"); // Redireciona para a pagina dashboard
-  }
+//   const routers = useRouter();
+//   function onSubmit() {
+//     routers.push("/dashboard"); // Redireciona para a pagina dashboard
+//   }
 
   return (
     <div style={{ display: "grid" }}>
