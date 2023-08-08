@@ -1,6 +1,20 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "@rocketseat/eslint-config/react"
-  ]
+  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react"],
+  "plugins" : [
+    "react"
+  ],
+  // dar um olhada no da rocket -> O deles já é bem completo, mas posso criar um meu
+  "rules": {
+    "no-console": "true",
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "no-empty": "off",
+    "no-constant-condition": "off",
+    "no-async-promise-executor": "off",
+    "no-prototype-builtins": "off",
+    "no-useless-escape": "off",
+    "no-irregular-whitespace": "off",
+    "no-unsafe-optional-chaining": "off",
+    "no-unsafe-negation": "off"
+  }
 }

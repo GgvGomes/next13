@@ -4,6 +4,8 @@ import { useState } from "react";
 
 export async function Increment() {
   const [count, setCount] = useState(0);
+  console.log('teste')
+
 
   return (
     <div style={{ display: "grid" }}>
